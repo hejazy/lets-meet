@@ -1,0 +1,76 @@
+<ion-header>
+</ion-header>
+<ion-content >
+  <div class="loader" [hidden]="loaderHide">
+    <div class="loaderP">
+    <ion-spinner name="dots" ></ion-spinner>
+    </div>
+  </div>
+
+
+  <div class="topForm">
+   <div class="apacity">
+    <div class="signupTopText">
+      <button ion-button navPop class="signupTopButton" type="button" name="button">  <ion-icon name="md-arrow-back"></ion-icon></button>
+      <!-- <p class="signupTopTextP1">Welcome</p> -->
+      <p class="signupTopTextP1">Create new account</p>
+      <div class="choseImage" (click)="uploadImage()">
+        <img src={{this.captureDataUrl}} *ngIf="this.captureDataUrl!=''">
+        <!-- <div class="choseImageIcon"><ion-icon name="md-add"></ion-icon></div> -->
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="signupForm">
+    <ion-item class="signupNameInput">
+      <ion-label class="signupNameLabel"><ion-icon name=ios-person></ion-icon></ion-label>
+      <ion-input type="text" value="" #a1 (keypress)="next($event.keyCode,'a1')" placeholder="Full name"></ion-input>
+    </ion-item>
+    <ion-item class="signupNameInput">
+      <ion-label class="signupNameLabel"><ion-icon name=ios-person></ion-icon></ion-label>
+      <ion-input type="text" value="" #a2 (keypress)="next($event.keyCode,'a2')" placeholder="Unique name"></ion-input>
+    </ion-item>
+    <!-- <ion-item class="signupNameInput">
+      <ion-label class="signupNameLabel"><ion-icon name=ios-person></ion-icon></ion-label>
+      <ion-input type="text" value="" #a3 (keypress)="next($event.keyCode,'a3')" placeholder="Invitation code"></ion-input>
+    </ion-item> -->
+    <!-- <ion-item class="signupDateInput">
+      <ion-label class="signupDateLabel"><ion-icon name=md-calendar style="padding-right:9px;"></ion-icon>  Date of Birth</ion-label>
+      <ion-datetime #a2 displayFormat="MMM/D/YYYY" [(ngModel)]="default" placeholder="" style="height:60px;"></ion-datetime>
+    </ion-item> -->
+    <ion-item class="signupMailInput">
+      <ion-label  style="margin-right:2px;" class="signupMailLabel"><ion-icon name=md-mail></ion-icon></ion-label>
+      <ion-input type="email" value="" #a4 (keypress)="next($event.keyCode,'a4')" placeholder="Email"></ion-input>
+    </ion-item>
+    <ion-item class="signupPhoneInput">
+      <ion-label  style="margin-right:2px;" class="signupPhoneLabel"><ion-icon name=ios-call style="padding-right:4px;"></ion-icon></ion-label>
+      <ion-input type="number" value="" #a5 (keypress)="next($event.keyCode,'a5')" placeholder="Phone number"></ion-input>
+    </ion-item>
+    <ion-item class="signupGenderInput">
+      <ion-label  style="margin-right:2px;" class="signupGenderLabel"><ion-icon name=md-transgender style="padding-right:6px;"></ion-icon>  Gender</ion-label>
+      <ion-select #a6 interface="action-sheet" [(ngModel)]="genderr">
+        <ion-option value="f" >Female</ion-option>
+        <ion-option value="m" >Male</ion-option>
+      </ion-select>
+    </ion-item>
+    <!-- <ion-item class="signupNameInput">
+      <ion-label class="signupNameLabel"><img height="22px" width="25px" src="assets/img/university.png" style="padding-right:4px;"></ion-label>
+      <ion-input style="transform:translateX(-10px);" type="text" value="" #a6 (keypress)="next($event.keyCode,'a6')" placeholder="University"></ion-input>
+    </ion-item>
+    <ion-item class="signupNameInput">
+      <ion-label class="signupNameLabel"><ion-icon name=ios-school></ion-icon></ion-label>
+      <ion-input type="text" value="" #a7 (keypress)="next($event.keyCode,'a7')" placeholder="Course"></ion-input>
+    </ion-item> -->
+    <ion-item class="signupPasswordInput1">
+      <ion-label class="signupPasswordLabel1"><ion-icon name=lock></ion-icon></ion-label>
+      <ion-input type="password" value="" #a7 (keypress)="next($event.keyCode,'a7')" placeholder="Password"></ion-input>
+    </ion-item>
+    <ion-item class="signupPasswordInput2">
+      <ion-label class="signupPasswordLabel2" ></ion-label>
+      <ion-input type="password" #a8 (keypress)="end($event.keyCode,a1.value ,a2.value,a4.value,a5.value,a7.value,a8.value)" placeholder="Confirm Password"></ion-input>
+    </ion-item>
+    <button ion-button class="button" round class="signupFormButtons" (click)="signup(a1.value,a2.value, a4.value,a5.value,a7.value,a8.value )">Create Account</button>
+   </div>
+</ion-content>
+<img src='assets/img/noImg.jpg' alt="" hidden='true' id='image'>

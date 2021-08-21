@@ -1,0 +1,83 @@
+    <ion-header [ngClass]="this.placeDetailsHide==true ? 'bordered': 'greyedOut'">
+      <div class="topForm" >
+        <img class="topImage"  src={{this.activity?.interest.img}} alt="">
+        <div class="opacityImage"></div>
+        <button left ion-button navPop icon-only clear color="light" (click)="openPage('return','')">
+          <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+        </button>
+        <div class="topIcon">
+          <img src={{this.activity?.interest.ico}} alt="">
+        </div>
+      <div class="topText">
+        <!-- <p class="topP1">Where</p> -->
+        <p class="topP4">Where to join</p>
+        <ion-searchbar (ionInput)="findTransit($event)" mode="ios" placeholder="Set Location or pick a suggestion." debounce="1000"
+        class="searchbar"></ion-searchbar>
+      </div>
+  </div>
+
+</ion-header>
+
+
+<div class="loader" [hidden]="loaderHide">
+    <div class="loaderP">
+        <ion-spinner name="dots"></ion-spinner>
+    </div>
+  </div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+
+<div class="placeDetails"  [hidden]="placeDetailsHide" (click)="showPlaceDetailes('close')">
+<div class="placeDetailsContainer">
+  <img src={{details?.icon}} alt="" class="detailIcon">
+  <div class="detailNameDiv">
+    <p class="detailName">{{details?.name}}</p>
+    <div class="stars" *ngIf="details?.rating!=undefined"><span [style.width.%]="details?.rating" class="stars-rating"></span></div>
+  </div>
+  <ion-slides  class="detailsImgs"  *ngIf="details?.photos!=undefined">
+  <ion-slide   *ngFor="let one of details.photos" >
+    <img  src="{{ one.getUrl({'maxWidth': 250, 'maxHeight': 150}) }}">
+  </ion-slide>
+</ion-slides>
+  <div class="detailAddressDiv">
+    <img src="assets/img/location3.png" class="detailAddressImg" alt="">
+    <div class="detailAddress">
+      <p>{{details?.vicinity}}</p>
+      <p class="detailDistance">{{details?.distance}} Km</p>
+    </div>
+  </div>
+  <!-- <div class="detailTypes">
+    <p *ngFor="let one of details?.types">{{one}}</p>
+  </div> -->
+</div>
+</div>
+
+
+<ion-content [ngClass]="this.placeDetailsHide==true ? 'bordered': 'greyedOut'">
+  <div class="map" #map id="map"></div>
+  <ion-fab right bottom  style="margin-right:100px" *ngIf="this.dragged" [class]="viewSlide" [hidden]="keyboardhide">
+    <button ion-fab  class="bottomButton" id="over_map" (click)="backtoLocation()" clear><ion-icon name="md-locate"></ion-icon></button>
+  </ion-fab>
+  <ion-fab right bottom style="margin-right:20px"  [class]="viewSlide" [hidden]="keyboardhide">
+      <button ion-fab class="bottomButton" id="over_map" (click)="pickThisLocation()" clear><ion-icon name="md-arrow-forward"></ion-icon></button>
+    </ion-fab>
+
+
+  <ion-slides #slides spaceBetween="-50" id="over_map" *ngIf="viewSlide" [hidden]="keyboardhide" (ionSlideDidChange)="slideChanged()">
+  <ion-slide   *ngFor="let one of place" >
+    <ion-card class="placeCard1">
+      <div class="placeText" (click)="showPlaceDetailes(one)">
+     <p class="placeName">{{one?.name}}</p>
+     <p class="placeData">{{one?.distance}}Km</p>
+   </div>
+     <button ion-button type="button" name="button" (click)="openPage('event',one)"><ion-icon name="md-arrow-forward"></ion-icon></button>
+   </ion-card>
+  </ion-slide>
+</ion-slides>
+  <div class="map1" #map1 id="map1"></div>
+  <!-- <div class="connectionLost" [hidden]="connectionLostHide">
+    <img src="assets/img/offline.png" alt="">
+    <p>You are offline</p>
+  </div> -->
+
+</ion-content>

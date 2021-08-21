@@ -1,0 +1,37 @@
+<ion-header>
+</ion-header>
+<ion-content >
+  <div class="loader" [hidden]="loaderHide">
+      <div class="loaderP">
+          <ion-spinner name="dots"></ion-spinner>
+      </div>
+    </div>
+
+
+<div class="topForm">
+ <div class="apacity">
+   <button ion-button navPop class="signinTopButton" type="button" name="button" *ngIf="activity!=''">  <ion-icon name="md-arrow-back"></ion-icon></button>
+  <div class="signinTopText">
+    <p class="signinTopTextP1">Welcome Back</p>
+    <p class="signinTopTextP2">Lets meet</p>
+  </div>
+  </div>
+</div>
+
+<div class="signinForm">
+  <ion-item class="signinMailInput">
+    <ion-label class="signinMailLabel" ><ion-icon name=ios-person></ion-icon></ion-label>
+    <ion-input type="email" value="" placeholder="Email" #t1 (keypress)="next($event.keyCode,'t1')"></ion-input>
+  </ion-item>
+  <ion-item class="signinPasswordInput">
+    <ion-label class="signinPasswordLabel"><ion-icon name=lock></ion-icon></ion-label>
+    <ion-input type="password" #t2 placeholder="Password" (keypress)="end($event.keyCode,t1.value, t2.value)"></ion-input>
+  </ion-item>
+  <button ion-button type="button" class="signinFormButtons" round outline (click)="signin(t1.value, t2.value)">Login</button>
+      <p class="signinForgetLink"  *ngIf="this.activity==''"><span class="bottsp" (click)="tryIt()">Try It</span></p>
+      <p class="signinForgetLink"  *ngIf="this.activity==''"><span class="bottsp" (click)="changeForm('forget')">Forgot password</span></p>
+  <!-- <p class="signinFormLine"><span>Or</span></p> -->
+  <!-- <button ion-button type="button" class="signinFormFacebook" round (click)="facebookLogin()" ><span class="facebookicon">f </span><span>Facebook</span></button> -->
+  <button ion-button type="button" class="signinFormButtons" round (click)="changeForm('signup')" >Create account</button>
+ </div>
+</ion-content>

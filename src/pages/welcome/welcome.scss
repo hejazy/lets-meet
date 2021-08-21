@@ -1,0 +1,32 @@
+.md button,.ios button ,.wp button {
+  text-transform: none;
+}
+
+page-welcome {
+ion-header{
+  width: 100%;
+  height: 100%;
+  .slide1{position: relative;}
+  img{height: 100%; width: 100%;}
+}
+.buttonForm{
+  position: fixed;
+  width: 90%;
+  height: 45px;
+  z-index: 10;
+  bottom:25px;
+  left: 50%;
+  transform:translateX(-50%);
+}
+.swiper-pagination{
+  margin-bottom: 70px;
+}
+.swiper-pagination-bullet {
+  background: rgb(255, 45, 85);
+  margin: 3px !important;
+}
+.buttonClass{
+  height: 100%;
+width: 100%;
+}
+}

@@ -1,0 +1,70 @@
+
+<ion-header>
+  <ion-navbar hideBackButton="true" class="topForm">
+      <ion-buttons left>
+    <button left ion-button navPop icon-only clear color="light" (click)="backToActivity()">
+      <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+    </button>
+    </ion-buttons>
+      <div class="topText">
+        <p class="topP1">Chat</p>
+      </div>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+
+
+  <ion-refresher (ionRefresh)="loadoldmsgs($event)" *ngIf="this.refresh==true">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+<div #scrollMe style="overflow: scroll; height: 100%;">
+<div class="chatForm" >
+  <div class="messageItem" *ngFor="let message of messages" style="overflow-x: hidden; overflow-y: hidden;">
+    <div class="typeAMessage" *ngIf="this.message.uid==this.uid" style="overflow-x: hidden; overflow-y: hidden;">
+      <div class="messageData">
+        <div class='messageText'>
+              <p dir="auto">{{message.message}}</p>
+        </div>
+        <div class="messageTime">
+              <p>{{message.clock}}</p><p>{{message.day}}</p>
+        </div>
+      </div>
+      <div class="messageImg" *ngIf="this.message.img!=''">
+        <img src={{this.message.img}} alt="">
+      </div>
+      <!-- <div class="whoSee" *ngIf="this.message.people.length!=0">
+        <div class="imgdiv" *ngFor="let p of this.message.peoplePreview">
+         <img src={{p}} alt="" *ngIf="p!=this.user[0].profile ">
+        </div>
+      </div> -->
+    </div>
+    <div class="typeBMessage" *ngIf="this.message.uid!=this.uid" style="overflow-x: hidden; overflow-y: hidden;">
+      <div class="messageData">
+        <div class='messageText'>
+              <p dir="auto">{{message.message}}</p>
+        </div>
+        <div class="messageTime">
+              <p>{{message.clock}}</p><p>{{message.day}}</p>
+        </div>
+      </div>
+      <div class="messageImg" *ngIf="this.message.img!=''">
+        <img src={{this.message.img}} alt="" >
+      </div>
+      <!-- <div class="whoSee" *ngIf="this.message.people.length!=0">
+        <div class="imgdiv" *ngFor="let p of this.message.peoplePreview">
+         <img src={{p}} alt="" *ngIf="p!=this.user[0].profile && p!=this.message.img">
+        </div>
+      </div> -->
+    </div>
+  </div>
+ </div>
+</div>
+
+</ion-content>
+<ion-footer>
+  <div class="bottomForm">
+      <ion-textarea fz-elastic  value="" placeholder="Write a message" #text [(ngModel)]="newmessage" (keypress)="pushText($event.keyCode,text.value)"></ion-textarea>
+      <button (click)="pushText(13,text.value)" ion-button clear><ion-icon name="md-send" color="primary"></ion-icon></button>
+  </div>
+</ion-footer>

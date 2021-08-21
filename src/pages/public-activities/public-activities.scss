@@ -1,0 +1,115 @@
+page-public-activities {
+
+    .topForm{
+      .menuButton {top:30px;}
+      position: relative;
+      height: 125px;
+      margin-bottom: -60px;
+     text-align: center;
+        background: linear-gradient(rgba(47,77,107,.6),rgba(47,77,107,.6)), url("../assets/img/Signin.png");
+        background-position: top;
+        background-size: cover;
+        color:#fff;
+        .topText{
+          padding-top: 10px;
+          margin: 0;
+          p{
+            margin:0;
+          }
+        }
+      }
+
+      .item-inner,.list-md ,ion-item-options{
+      border-bottom: none !important;
+      box-shadow: none !important;
+      }
+      label, .label-md{padding: 0;margin: 0;}
+      .menuButton{
+      width: 30px;
+        height: 40px;
+      position: absolute;
+      top:50%;
+      left:0;
+      transform: translateY(-50%);
+      font-size: 2em;
+      }
+      .listForm{
+        .unJoinButton{border-radius: 50% !important; height:30px !important; width:30px; border:1px solid rgb(252,68,120) !important; top:50%; transform: translateY(-50%); margin: 2px 0 !important;
+        ion-icon{ padding-bottom: 0 !important;}
+        }
+    .list-ios ion-item-options .button{min-height: 0;}
+      }
+      .listHeader{
+        ion-icon{display: inline-block;}
+        p{display: inline-block; padding-left: 10px; margin: 0;}
+      }
+      .item-inner {
+      border-bottom-color: transparent !important;
+      box-shadow: none !important;
+      }
+        .listItem1{
+        height: 160px;
+        width: 96%;
+        margin: 10px 2%;
+        border: 1px solid #eee;
+        box-shadow: 6px 6px 6px #aaa;
+        padding: 0;
+        border-radius: 10px;}
+        .listItem2{
+          height: 160px;
+          width: 96%;
+          box-shadow: 1px 1px 2px #aaa;
+          border: 1px solid #eee;
+          margin: 10px 2%;
+          padding: 0;
+          border-radius: 10px;}
+      .itemLeft{
+        float: left;
+       height: 100%;
+        width: 30%;
+        text-align: center;
+        position: relative;
+          p{color:#fff;}
+        .itemTime p{
+         font-size: 2em;
+         margin: 0;
+         font-weight: lighter;
+        }
+        .itemSynk{
+         position: absolute;
+         bottom:10px;
+         left:50%;
+         transform: translateX(-50%);
+          p{text-transform:uppercase;;}
+         }
+      }
+      .itemRight{
+        float: right;
+        height:100%;
+        width:70%;
+        position: relative;
+        .itemName{
+          padding:10px 10px;
+          p{font-size: 1.6em; text-transform: capitalize;font-weight: 500;}
+        }
+        .itemPeople{
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          margin-left: 10px;
+          img{
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+          }
+        }
+        .itemPlace{
+          position: absolute;
+          bottom:5px;
+          left:10px;
+          img{width: 20px; height: 20px;display: inline-block;}
+          p{display: inline-block;transform: translateY(-5px);}
+        }
+      }
+}

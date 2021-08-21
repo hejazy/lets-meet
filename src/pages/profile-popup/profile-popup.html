@@ -1,0 +1,20 @@
+<ion-header >
+  <span style="position :absolute; right:0;" *ngIf="this.activity!=undefined">
+  <button class="admin" clear style="color:#028;font-size:1.2em; background-color:transparent; border-top-right-radius: 20px" *ngIf="this.admin && !this.done && this.activity[this.id]== undefined" (click)="addAsAdmin()" >Add as Admin</button>
+  <button class="admin" clear style="color:#028;font-size:1.2em; background-color:transparent; border-top-right-radius: 20px" *ngIf="this.activity[this.id] !=undefined || this.done">Admin</button>
+</span>
+  <img class="profilePic" src={{this.person?.profile[0].profile}} alt="" *ngIf="person">
+  <div class="profileText" *ngIf="person">
+    <p style="color:#028;font-size:1.3em;">{{person?.profile[0].name}}</p>
+    <p style="color:#028;">{{person?.profile[0].joinNo}} Joined</p>
+    <p style="color:#028;">{{person?.profile[0].university}} </p>
+    <p style="color:#028;" *ngIf="person.profile[0].course">Course : {{person?.profile[0].course}}</p>
+ </div>
+</ion-header>
+
+<ion-content>
+    <div class="profileInterest" *ngFor="let one of interests" >
+     <img src={{one.img}} alt="">
+     <button ion-button round class="profileInterestText" style.background-color={{one.color}}><p>{{one.name}}</p></button>
+    </div>
+</ion-content>

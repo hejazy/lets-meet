@@ -1,0 +1,70 @@
+page-signin {
+ ion-content ,ion-header{  text-align: center;  font-family:inherit;}
+     ion-label{color:#999;}
+.signinFormButtons, .signinFormFacebook{  width: 90%;  height: 50px;  margin:10px 15px;}
+.signinFormFacebook { background-color: rgb(59,89,153);}
+.item-inner {
+border-bottom-color: transparent !important;
+box-shadow: none !important;
+}
+.input-cover , .input-has-focus{
+  height: 60px;
+  margin-bottom:2px;
+  border-bottom: thin solid rgba(204,204,204,0.3) !important;
+  box-shadow: thin solid rgba(204,204,204,.3) !important;
+}
+.signinForgetLink{color:rgb(48,77,107)}
+ion-input{  height: 60px;}
+input{  height: 30px;}
+.signinFormLine {
+   width: 100%;
+   text-align: center;
+   border-bottom: thin solid rgba(204,204,204,0.3);
+   line-height: 0.1em;
+   margin: 5% 0;
+}
+.signinFormLine span {background:#fff;   padding:0 12%;   color:rgb(150,150,150);}
+.facebookicon{
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  left:8%;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+.topForm{
+  height: 160px;
+  background-image: url("../assets/img/Signin.png");
+  color:#fff;
+  background-size: cover;
+   .apacity{
+     width: 100%;
+     height: 100%;
+     background-color:rgba(50,60,70,.8);
+   }
+  .signinTopText{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    &P1{
+    padding-top:20px;
+      font-size: .8em;
+    }
+    &P2{
+      margin: 0;
+      font-weight: bold;
+      font-size: 2.9em;
+   }
+  }
+ }
+ .signinTopButton{
+   top:15px;
+   left:0;
+   padding:10px ;
+   font-size: 1.5em;
+   position: absolute;
+   background-color: transparent;
+   outline: none !important;
+   box-shadow: none !important;
+ }
+}

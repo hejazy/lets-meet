@@ -1,0 +1,64 @@
+page-signup {
+  ion-content ,ion-header{
+     text-align: center;
+     font-family:inherit;
+   }
+   ion-input{ height: 60px;}
+   input{   height: 30px;}
+   ion-label{color:#999;}
+.signupPasswordInput2{input{padding-left: 12px;}}
+.signupFormButtons{width: 90%;height: 50px;margin:15px;}
+.item-inner {border-bottom-color: transparent !important;box-shadow: none !important;}
+.input-cover , .input-has-focus{
+  height: 60px;   margin-bottom:2px;
+  border-bottom: thin solid rgba(204,204,204,0.3) !important;
+  box-shadow: thin solid rgba(204,204,204,.3) !important;
+}
+#datetime-3-0{  border-bottom: thin solid rgba(204,204,204,0.3) !important;}
+.topForm{
+  position: static;
+  height: 160px;
+  background-image: url("../assets/img/Signin.png");
+  color:#fff;
+  background-size: cover;
+   .apacity{ width: 100%; height: 100%; background-color:rgba(50,60,70,.8);}
+   .signupTopTextP1{ font-size: 1.5em; margin:0 0 7px 0; padding-top:20px; font-weight: bold;}
+   .signupTopTextP2{ font-size: .8em; margin: 5px;}
+   .choseImage{
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 100px;
+     height:100px;
+     background-color: #fff;
+     border-radius: 50%;
+     img{ width: 100px; height:100px; border-radius: 50%; object-fit: cover;}
+   }
+   .choseImageIcon{
+     position: absolute;
+     top:50%;
+     left:50%;
+     width:30px;
+     height: 30px;
+     border-radius: 50%;
+     background-color: rgba(100,100,100,.3);
+     transform: translate(-50%,-50%);
+     ion-icon{position: absolute;  top:50%;  right:50%; transform:translate(50%,-50%);}
+  }
+  .signupTopButton{
+    top:5px;
+    left:0;
+    padding:10px ;
+    font-size: 1.5em;
+    position: absolute;
+    background-color: transparent;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+.signupGenderInput{border-bottom: 1px solid rgba(204,204,204,0.3);}
+.loader{
+  .inner-content{position: absolute;top:30%; left:50%; transform: translate(-50%,-50%);}
+  p{color:#fff; font-size: 1.2em; position: absolute; top:40%; background-color: rgba(100,100,100,.6); width: 90%; border-radius: 10px; left: 50%; transform: translate(-50%,-50%); margin:0; padding: 10px 0;}
+}
+}

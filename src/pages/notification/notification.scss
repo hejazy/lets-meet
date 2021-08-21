@@ -1,0 +1,40 @@
+page-notification {
+.topForm{
+  position: relative;
+  height: 70px;
+  text-align: center;
+  background: linear-gradient(rgba(50,60,70,.8),rgba(50,60,70,.8)), url("../assets/img/Signin.png");
+  background-position: top;
+  background-size: cover;
+  color:#fff;
+  .topText{
+    padding-top: 10px;
+    margin: 0;
+    p{
+      margin:0;
+    }
+  }
+}
+.menuButton{
+width: 30px;
+  height: 40px;
+position: absolute;
+top:50%;
+left:0;
+transform: translateY(-50%);
+font-size: 2em;
+}
+ion-content{display: flex; flex-direction: column;}
+ion-list{margin-top: auto}
+.listForm{
+  overflow: hidden;
+  min-height: 30px;;
+.listItem{position: relative;}
+.notificationIcon{ width:10px; position: absolute; top:3px; left:3px;}
+.notificationText{ width: calc(82% - 20px); padding-left:25px; display: inline-block; p{margin: 0}}
+.notificationTime{width:20%; display: inline-block; color:#888; p{margin: 0; display: inline-block;}}
+}
+hr{
+	border-top: 1px solid #8c8b8b;
+}
+}

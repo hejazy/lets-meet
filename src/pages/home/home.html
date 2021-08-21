@@ -1,14 +1,63 @@
+<div class="loader" [hidden]="loaderHide">
+    <div class="loaderP">
+        <ion-spinner name="dots"></ion-spinner>
+    </div>
+</div>
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+<div class="homeTop">
+  <button ion-button class="menuButton" color="light" *ngIf="auth" type="button" name="button" menuToggle clear><ion-icon name="menu"></ion-icon></button>
+  <button ion-button class="menuButton" color="light" *ngIf="!auth" type="button" name="button" menuToggle clear navPop><ion-icon name="md-arrow-back"></ion-icon></button>
+  <div class="homeTopText">
+    <!-- <p class="topP1">Activity</p> -->
+    <p class="topP4">What are you up for doing?</p>
+    <ion-searchbar (ionInput)="search($event)" [(ngModel)]=s mode="ios" placeholder="Search or tap on an activity to do." class="searchbar"></ion-searchbar>
+  </div>
+</div>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <div class="homeInterestForm" *ngIf="interestsF && interestsF.length!=0">
+    <ion-item-divider class="homeInterestHeader" *ngIf="auth" sticky>
+        <ion-icon name="md-radio-button-off" color="primary"></ion-icon><p>Based on your interest</p>
+    </ion-item-divider>
+    <ion-item-divider class="homeInterestHeader" *ngIf="!auth" sticky>
+        <ion-icon name="md-radio-button-off" color="primary"></ion-icon><p>Interests</p>
+    </ion-item-divider>
+    <div class="homeInterestItems">
+    <div class="homeInterestItem" *ngFor="let one of interestsF" (click)="makeNewActivity(one)" >
+
+      <img class="homeInterestCover" src={{this.one?.img}} alt="">
+     <pre>{{this.one?.name}}</pre>
+     <div class="homeInterestIcon" style='background-color:rgba(150,150,150,.7)'>
+       <img src={{this.one?.ico}} alt="">
+     </div>
+    </div>
+    </div>
+  </div>
+  <div class="otherActivityForm" *ngIf="otherF && otherF.length!=0">
+    <ion-item-divider class="otherActivityHeader" sticky>
+        <ion-icon name="md-radio-button-off" color="light"></ion-icon><p>Other activity</p>
+    </ion-item-divider>
+    <div class="otherActivityItems">
+    <div class="otherActivityItem" *ngFor="let one of otherF" (click)="makeNewActivity(one)">
+      <img class="otherActivityCover" src={{this.one?.img}} alt="">
+     <pre>{{this.one?.name}}</pre>
+     <div class="otherActivityIcon" style='background-color:rgba(150,150,150,.7)'>
+            <!-- style.background-color={{this.one?.color}} -->
+       <img src={{this.one?.ico}} alt="">
+     </div>
+    </div>
+  </div>
+  </div>
+  <div class="otherActivityForm" *ngIf="otherF && interestsF && !otherF.length && !interestsF.length && s">
+    <div class="otherActivityItems">
+    <div class="otherActivityItem"  (click)="makeNewActivity(this.custom)">
+      <img class="otherActivityCover" src={{custom?.img}} alt="">
+     <pre>{{s}}</pre>
+     <div class="otherActivityIcon" style='background-color:rgba(150,150,150,.7)'>
+       <img src={{custom?.ico}} alt="">
+     </div>
+    </div>
+  </div>
+  </div>
 </ion-content>

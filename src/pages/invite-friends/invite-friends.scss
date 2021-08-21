@@ -1,0 +1,13 @@
+page-invite-friends {
+  .tabbar{
+    background-color:rgb(48,77,107) !important;
+    .tab-button-text{
+    color:white;
+    font-size:1.1em;
+    font-weight: bold;
+    }
+    .tab-button[aria-selected=true]{
+      border-bottom:4px solid rgb(252,68,120);
+    }
+  }
+}

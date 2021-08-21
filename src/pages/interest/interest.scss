@@ -1,0 +1,104 @@
+page-interest {
+  .scroll-content{
+    margin-top: 90px;
+    background-color: rgb(48,77,107);
+    color:#fff;
+  }
+  .menuButton{
+  position: absolute;
+  top:10px;
+  left:0;
+    height: 40px;
+  width:30px;
+  font-size: 1.3em;
+  }
+  .topForm{
+    position: absolute;
+    z-index: 99999;
+    top:0;
+    width: 100%;
+    background-color: rgb(48,77,107);
+    color:#fff;
+    text-align: center;
+    height:90px;
+    .topText{
+      p{
+        margin: 0;
+      }
+    }
+  //   .searchbar{
+  //     z-index: 100;
+  //       margin: 0 ;
+  //       margin: 0 5%;
+  //       background: transparent !important;
+  //       width: 90%;
+  //     .searchbar-clear-icon {
+  //        display: none !important;
+  //     }
+  //     input{
+  //       padding-left: 50px !important;
+  //       height: 4.5rem !important;
+  //       border-radius: 10px !important;
+  //     }
+  //   }
+  }
+   .suggestForm{
+     height: 100px;
+     width: auto;
+     margin: 40px 10px 10px;
+     .suggestButton{float:right}
+   }
+  .interestItem{
+    ion-checkbox{width: 100%; height: 100%;position:  absolute; z-index: 200; .checkbox-icon{display: none;}}
+    .true{background-color: rgb(252,68,120);}
+    .false{ background-color: rgba(150,150,150,.8);}
+    position: relative;
+    height:160px;
+    width: 100%;
+    padding: 0;
+    margin: -28px 0;
+    pre{
+      font-size:2em;
+      font-weight: bold;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      position: relative;
+      top:50%;
+      left:10%;
+      transform: translateY(-50%);
+    }
+    img{position: absolute;width: 100%;height: 100%;z-index: -10;filter: brightness(50%); object-fit: cover;}
+    .true ,.false {
+      height: 90px;
+      width: 90px;
+      border-radius: 50%;
+      position: absolute;
+      right:10%;
+      top:50%;
+      transform: translateY(-50%);
+      img{
+        z-index: 10;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        height: 60px;
+        width: 60px;
+        filter: brightness(100%);
+      }
+    }
+  }
+  ion-footer{background-color:rgb(48,77,107); }
+  .bottomForm{
+    height: 80px;
+    text-align: center;
+  }
+  .bottomButton{
+    font-size: 1.2em;
+    margin-top: 15px;
+    height:50px;
+    width: 90%;
+    color:rgb(252,68,120);
+
+  }
+}

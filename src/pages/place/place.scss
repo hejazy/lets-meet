@@ -1,0 +1,91 @@
+page-place {
+  ion-header{height: 105px;border-bottom: 0;}
+    .header::after{display: none !important;}
+  .topForm{
+    text-align: center;
+    height:105px;
+    position: relative;
+    color:#fff;
+    .topImage{position: absolute;height: 100%;width: 100%; z-index: -100; left:0; filter:brightness(60%);   object-fit: cover;}
+    .opacityImage{position: absolute;height: 100%;width: 100%; z-index: -99; left:0;background-color: rgba(47,77,107,.6);}
+    .topText{
+      p {
+        margin: 0;
+      }
+    }
+    button{
+    height: 40px;
+    width: 30px;
+    position: absolute;
+    top:15px;
+    left:5px;
+    }
+
+    .topIcon{
+      position: absolute;
+      top:20px;
+      right:20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #444;
+
+      img{width: 25px;height: 25px; border-radius: 50%; position: absolute; top:50%;left: 50%; transform: translate(-50%,-50%);}
+    }
+  }
+  .scroll-content{
+    .map{
+      .leaflet-control{margin-top: 60px;}
+      height: 100%;;
+      width: 100%;
+    }
+    .swiper-container{background: linear-gradient(to bottom, rgba(100,100,100,0) 0%, rgba(100,100,100,.6) 100%);}
+    .leaflet-control-attribution{display: none;}
+    .ion-slides{background-color: rgba(100, 200, 0, .5);z-index: 9999999;}
+    .slides {
+      position: absolute;
+      bottom:0;
+       z-index: 9999999;
+       height: 190px;
+    .placeCard1{
+      background: #fff;
+       height: 140px;
+        width: 80%;
+         z-index: 9999999;
+        position: absolute;
+        bottom:10px;
+          border-radius: 10px;
+      button{position: absolute; border-radius: 50%; width: 60px; height: 60px;top:50%; right:5%; transform: translateY(-50%); font-size: 1.4em}
+      .placeText{width:70%; height:120px; display: block; position: relative;}
+       .placeName{color:rgb(252,68,120) ; font-size: 1.7rem;  position: absolute; left:20px; top:20px; word-break: break-all; font-weight: bold;}
+        .placeData{position: absolute;left:20px; bottom:20px; padding:0; word-break: break-all;}
+      }
+  }
+}
+.true{margin-bottom: 200px;}
+.false{margin-bottom:20px;}
+.placeDetails{height: 100%; width: 100%; position: relative; z-index: 999999;
+      .placeDetailsContainer{width: 90%; height: 60%; background-color: #fff; border-radius: 10px; position: absolute; top:50%; left: 50%; transform:translate(-50%,-50%);box-shadow: 6px 6px 5px #888;}
+      .detailIcon{height: 50px; width: 50px; border-radius: 50%; border: 2px dotted rgb(47,77,107); margin:20px 0 0 20px; display: inline-block;}
+      .detailNameDiv{width: calc(100% - 97px) ; height: 100px; float:right;}
+      .detailName{font-size: 1.6em; color:rgb(252,68,120); margin: 15px 0 0 0 ;}
+      .stars {
+       background: url("../assets/img/star-rating-sprite.png") repeat-x;
+       font-size: 0;  height: 21px;  line-height: 0;  overflow: hidden;
+       text-indent: -999em;  width: 107px;  margin: 0 ;  padding: 0;  margin-bottom:8px;
+       &-rating {
+         background: url("../assets/img/star-rating-sprite.png") repeat-x;
+         background-position: 0 100%;  float: left;  height: 21px;display:block;margin: 0;padding: 0;
+      }
+      }
+    .detailAddressDiv{width: 100%; margin-top: 15px; display: inline-block;}
+    .detailAddressImg{width: 40px; height: 40px; display:inline-block; margin-top:10px; }
+    .detailAddress{ font-size: 1.2em ; margin:0; width: calc(100% - 50px); p{margin: 0;}; display:inline-block;}
+    .detailDistance{padding-top: 5px; color:rgb(47,77,107)}
+    .detailTypes{width: 100%; display: inline-block;}
+    .detailsImgs{width: 100%; height: 170px;
+     }
+}
+.greyedOut{filter: blur(5px);}
+input{font-size: .9em !important}
+}

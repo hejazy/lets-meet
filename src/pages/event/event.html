@@ -1,0 +1,41 @@
+<ion-header>
+  <div class="topForm">
+    <img class="topImage"   src={{this.activity?.interest.img}} alt="">
+    <div class="opacityImage"></div>
+    <button left ion-button navPop icon-only clear color="light">
+      <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+    </button>
+    <div class="topIcon">
+      <img src={{this.activity?.interest.ico}} alt="">
+    </div>
+  <div class="topText">
+    <p class="topP4">Choose a date & time</p>
+    <ion-card class="placeCard">
+      <div class="leftCard">
+        <img src={{this.activity?.interest.img}} alt="">
+      </div>
+      <div class="rightCard">
+       <p class="placeName">{{this.activity?.place.name}}</p>
+       <p class="placeData">{{this.activity?.place.vicinity}}</p>
+     </div>
+   </ion-card>
+  </div>
+</div>
+</ion-header>
+<ion-content>
+  <div class="inputForm">
+    <ion-item class="textInput">
+      <ion-label class="item item-input date">
+        <p class="p2">Pick Time</p><p class="p1">{{this.new}}</p>
+      </ion-label>
+      <ion-multi-picker item-content (ngModelChange)="changed()" [multiPickerColumns]="this.col" [(ngModel)] = "default" *ngIf="this.col!=''"></ion-multi-picker>
+   </ion-item>
+  </div>
+
+
+
+
+  <div class="bottomForm">
+  <button (click)="openPage()" ion-button ><ion-icon name="md-arrow-forward"></ion-icon></button>
+  </div>
+</ion-content>

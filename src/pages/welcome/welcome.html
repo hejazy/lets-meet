@@ -1,0 +1,19 @@
+
+<ion-header>
+  <ion-slides #Slides pager="true">
+      <ion-slide class="slide1" *ngFor="let one of welcomeImgs">
+        <img src={{one.img}} alt="">
+        <div class="partslid">
+         </div>
+    </ion-slide >
+
+    </ion-slides>
+    <div class="buttonForm">
+      <button ion-button class="buttonClass" round (click)="finish()">Get Started</button>
+    </div>
+</ion-header>
+
+
+<!-- <ion-content padding>
+
+</ion-content> -->

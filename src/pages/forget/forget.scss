@@ -1,0 +1,42 @@
+page-forget {
+  ion-content ,ion-header{  text-align: center;  font-family:inherit;}
+      ion-label{color:#999;}
+ .forgetFormButtons{ width: 90%; height: 50px; margin:15px;}
+ .item-inner {
+ border-bottom-color: transparent !important;
+ box-shadow: none !important;
+ }
+ .input-cover , .input-has-focus{
+   height: 60px;
+   margin-bottom:2px;
+   border-bottom: thin solid rgba(204,204,204,0.3) !important;
+   box-shadow: thin solid rgba(204,204,204,.3) !important;
+ }
+ ion-input{  height: 60px;}
+ input{  height: 30px;}
+ .topForm{
+   position: static;
+   height: 200px;
+   background-image: url("../assets/img/Signin.png");
+   color:#fff;
+   background-size: cover;
+    .apacity{width: 100%;height: 100%;background-color:rgba(50,60,70,.8);}
+   .forgetTopText{
+     position: absolute;
+     left:50%;
+     transform: translateX(-50%);
+     &P1{ padding-top:20px;   font-size: 1.6em;font-weight: bold;}
+     &P2{margin: 0;font-size: 1em;}
+   }
+   .forgetTopButton{
+     left:0;
+     top:5px;
+     padding:10px ;
+     font-size: 1.5em;
+     position: absolute;
+     background-color: transparent;
+     outline: none !important;
+     box-shadow: none !important;
+   }
+  }
+}

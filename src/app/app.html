@@ -1,1 +1,35 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<div [class]="ioschange">
+<ion-menu [content]="mycontent" menu-width="100%" drag-content="false">
+  <ion-content class="menucolor">
+  <div class="menuTopForm">
+    <button ion-button type="button" class="menuNotification" clear (click)="openPage('notification')">
+      <img src="assets/img/notification.png" alt="">
+      <img src="assets/img/notificationred.png" *ngIf="this.notification" style="width:10px;height:10px; transform:translateY(-5px)" alt="">
+    </button>
+    <div class="menuUser" (click)="openPage('setting')" *ngIf="this.user.length!=0">
+      <div class="menuUserImage">
+              <img src={{user[0]?.profile}} alt="">
+      </div>
+      <div class="menuUserText">
+        <p>{{user[0]?.name}}</p>
+        <p >{{user[0]?.email}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="menuListForm">
+  <ion-list>
+    <button ion-button clear color="dark"  *ngFor="let p of pages" (click)="openPage(p)" block [disabled]="p.disable">
+      <p class='listText'>{{p.title}}</p>
+    </button>
+  </ion-list>
+  <img src="assets/img/car.png" alt="">
+</div>
+<div class="menuBottomForm">
+  <button ion-button type="button" class="menuLogout" clear (click)="logout()"><ion-icon name="ios-power"></ion-icon></button>
+  <button ion-button type="button" class="menuSetting" clear (click)="openPage('setting')"><ion-icon name="ios-settings-outline"></ion-icon></button>
+</div>
+</ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>
+
+</div>

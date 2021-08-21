@@ -1,0 +1,21 @@
+<ion-header>
+</ion-header>
+<ion-content >
+  <div class="topForm">
+   <div class="apacity">
+     <button ion-button class="forgetTopButton" type="button" name="button" (click)="changeForm()">  <ion-icon name="md-arrow-back"></ion-icon></button>
+      <div class="forgetTopText">
+        <p class="forgetTopTextP1">Welcome</p>
+        <p class="forgetTopTextP2">Reset Password</p>
+        </div>
+    </div>
+  </div>
+
+  <div class="forgetForm">
+    <ion-item class="forgetMailInput">
+      <ion-label  style="margin-right:2px;" class="forgetMailLabel"><ion-icon name=md-mail></ion-icon></ion-label>
+      <ion-input type="email" value="" #b1 (keypress)="end($event.keyCode,b1.value)" placeholder="Email"></ion-input>
+    </ion-item>
+    <button ion-button class="button" round class="forgetFormButtons" (click)="forget(b1.value)">Confirm</button>
+   </div>
+</ion-content>

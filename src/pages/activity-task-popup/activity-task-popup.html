@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf='!this.taskId'>New Task</ion-title>
+    <ion-title *ngIf='this.taskId'>Edit Task</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="saveData()" [formGroup]="formData">
+
+  <ion-item>
+  <ion-label floating>Discription</ion-label>
+  <ion-input type="text" id='discription'   formControlName="discription" [value]="data?.discription"></ion-input>
+  </ion-item>
+  <button block ion-button type='submit'>Save</button>
+</form>
+</ion-content>

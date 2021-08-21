@@ -1,0 +1,152 @@
+<div class="loader" [hidden]="loaderHide">
+    <div class="loaderP">
+        <ion-spinner name="dots"></ion-spinner>
+    </div>
+  </div>
+  <ion-header>
+  </ion-header>
+<ion-content  (pan)="panEvent($event)" >
+  <div class="topForm">
+    <img src={{this.activity?.interest.img}} alt="">
+    <button ion-button class="backButton" *ngIf='!public' clear color="light" type="button" name="button" (click)="openPage('activities')"> <ion-icon name="ios-arrow-back"></ion-icon><p>My Activities</p>  </button>
+    <button ion-button class="backButton"  *ngIf='public'  clear color="light" type="button" name="button" (click)="openPage('activities')"> <ion-icon name="ios-arrow-back"></ion-icon><p>Public Activities</p>  </button>
+
+
+  <div class="topText">
+    <p class="nameText">{{activity?.interest.name}}</p>
+    <div class="topLine"></div>
+    <div class="placeItem" (click)="this.gps.openNavigator(this.activity?.place.location)">
+     <img src="assets/img/location3.png" alt="">
+     <p class="placeText">{{this.activity?.place.name}}</p>
+     <button ion-button class="editButton" *ngIf="this.admin" clear color="light" type="button" name="button" (click)="editActivityPlace()"> <p>Edit</p></button>
+    </div>
+    <div class="timeItem">
+     <img src="assets/img/time.png" alt="">
+     <div class="timeTextTotal">
+       <p class="dayText">{{activity?.time.date}}</p>
+       <p class="timeText">{{activity?.time.time}}<span class="ampmText">{{activity?.time.ampm}}</span></p>
+       <button ion-button class="editButton" *ngIf="this.admin" clear color="light" type="button" name="button" (click)="editActivityTime()"> <p>Edit</p></button>
+     </div>
+    </div>
+  </div>
+  <div class="halfArrow">
+    <p style="float:right; margin:35px 30px; font-size:1.3em; font-weight:bold;" (click)="openTasks()">Tasks</p>
+  </div>
+  </div>
+  <div class="listForm">
+    <ion-item class="whoItem">
+      <img src="assets/img/people.png" alt="">
+      <div class="whoText">
+        <p>who</p>
+        <p style="color:#fff;font-size:1.4em; font-weight:400;">{{joinNo}} joined</p>
+      </div>
+      <button ion-button clear color="light" type="button" name="button" (click)="showlist()">{{this.listKey}}</button>
+    </ion-item>
+
+    <div *ngIf="this.showDetails">
+
+    <ion-item class="arrivedItem"  *ngIf="this.arrived.length!=0 && this.eventIsNow">
+     <div class="arrivedText" >
+       <p>Arrived</p>
+     </div>
+     <div class="itemText2">
+        <ion-list>
+            <ion-item (click)='openProfile(person)' *ngFor="let person of this.arrivedView; let last = last">
+                <ion-avatar item-start>
+                    <img src={{person?.profile[0].profile}}>
+                  </ion-avatar>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.admin && !this.activity.admins[person.key]" (click)="addAsAdmin(person)" >Add as Admin</button>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.activity.admins[person.key]">Admin</button>
+                  <p>{{person?.profile[0].name}}</p>
+                </ion-item>
+              </ion-list>
+
+  </div>
+    </ion-item>
+    <ion-item class="awayItem" *ngIf="this.away.length!=0 && this.eventIsNow">
+     <div class="awayText">
+       <p>15 min away</p>
+     </div>
+     <div class="itemText2">
+        <ion-list>
+            <ion-item (click)='openProfile(person)' *ngFor="let person of this.awayView; let last = last">
+                <ion-avatar item-start>
+                    <img src={{person?.profile[0].profile}}>
+                  </ion-avatar>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.admin && !this.activity.admins[person.key]" (click)="addAsAdmin(person)" >Add as Admin</button>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.activity.admins[person.key]">Admin</button>
+                  <p>{{person?.profile[0].name}}</p>
+                </ion-item>
+              </ion-list>
+
+  </div>
+    </ion-item>
+    <ion-item class="invitedItem" *ngIf="this.joined.length!=0">
+      <div class="invitedText">
+        <p>Joined</p>
+      </div>
+      <div class="itemText2">
+          <ion-list>
+              <ion-item (click)='openProfile(person)' *ngFor="let person of this.joinedView; let last = last">
+                <ion-avatar item-start>
+                  <img src={{person?.profile[0].profile}}>
+                </ion-avatar>
+                <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.admin && !this.activity.admins[person.key]" (click)="addAsAdmin(person)" >Add as Admin</button>
+                <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.activity.admins[person.key]">Admin</button>
+                <p>{{person?.profile[0].name}}</p>
+              </ion-item>
+            </ion-list>
+
+   </div>
+      </ion-item>
+      <ion-item class="invitedItem" *ngIf="this.invited.length!=0">
+     <div class="invitedText">
+       <p>Invited</p>
+     </div>
+     <div class="itemText2">
+        <ion-list>
+            <ion-item (click)='openProfile(person)' *ngFor="let person of this.invitedView; let last = last">
+                <ion-avatar item-start>
+                    <img src={{person?.profile[0].profile}}>
+                  </ion-avatar>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.admin && !this.activity.admins[person.key]" (click)="addAsAdmin(person)" >Add as Admin</button>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.activity.admins[person.key]">Admin</button>
+                  <p>{{person?.profile[0].name}}</p>
+                </ion-item>
+              </ion-list>
+  </div>
+    </ion-item>
+    <ion-item class="noJoinItem" *ngIf="this.cantJoin.length!=0">
+     <div class="noJoinText">
+       <p>Can't join</p>
+     </div>
+     <div class="itemText2">
+        <ion-list>
+            <ion-item (click)='openProfile(person)' *ngFor="let person of this.cantJoinView; let last = last">
+                <ion-avatar item-start>
+                    <img src={{person?.profile[0].profile}}>
+                  </ion-avatar>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.admin && !this.activity.admins[person.key]" (click)="addAsAdmin(person)" >Add as Admin</button>
+                  <button class="admin" ion-button clear color="light" style="float:right;" *ngIf="this.activity.admins[person.key]">Admin</button>
+                  <p>{{person?.profile[0].name}}</p>
+                </ion-item>
+              </ion-list>
+
+  </div>
+    </ion-item>
+  </div>
+  </div>
+</ion-content>
+
+
+
+<ion-footer  (pan)="panEvent($event)">
+<div class="bottomForm">
+  <div class="chatDiv">
+    <div class="newChatNotification" *ngIf="this.newChatMessage"></div>
+    <button class="chatButton" ion-button color="secondary"  type="button" name="button" (click)="openPage('chat')">chat</button>
+  </div>
+  <button class="unjoinButton"  (click)="changeState('unjoin')" ion-button color="light" clear type="button" name="button" [disabled]="this.state=='cantjoin' || this.state=='creator'">can't<br>join</button>
+  <button class="joinButton"  (click)="changeState('join')" ion-button color="primary" type="button" name="button" [disabled]="this.state=='joined' || this.state=='creator'">Joi<span>n</span></button>
+</div>
+</ion-footer>

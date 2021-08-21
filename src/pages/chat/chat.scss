@@ -1,0 +1,103 @@
+page-chat {
+  .toolbar-background {
+    background: linear-gradient(rgba(50,60,70,.8),rgba(50,60,70,.8)), url("../assets/img/Signin.png") !important;
+    background-position: top !important;
+    background-size: cover !important;}
+  .toolbar {
+    position: relative;
+    height: 70px;
+    color:#fff;
+    .topText{
+      position: absolute;
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-50%);
+      margin: 0;
+      p{
+        margin:0;
+      }
+    }
+  }
+.chatForm{
+  overflow:   none;
+  width:      100%;
+  position: relative;
+  height: auto;
+}
+.typeAMessage{
+  width: 100%;
+  position: relative;
+  margin:10px 0;
+display:block;
+min-height: 50px;
+overflow:auto;
+  .whoSee{position:absolute; bottom:5px; height:20px; left:10px;
+  .imgdiv{float:left; img{width: 20px; height: 20px; border-radius: 50%; }}
+}
+
+  .messageImg{ width: 50px ; height: 50px;  position: absolute; right:10px; bottom:0;
+              img{border-radius: 50%; width: 50px ; height: 50px;}}
+  .messageData{
+      margin:0 70px 0 20%;
+      padding: 15px;
+      float: right;
+      color:#fff;
+      border-radius: 15px 15px 0 15px;
+      background-color: rgb(23, 44, 160);
+      p{margin:0; word-break: break-all;}
+      .messageText{  position: relative;  display:block;  overflow:auto;}
+     }
+}
+.typeBMessage{
+  width: 100%;
+  position: relative;
+  display:block;
+  margin:10px 0;
+  min-height: 50px;
+  overflow:auto;
+  .whoSee{position:absolute; bottom:5px; height:20px; right:10px;
+  .imgdiv{float:right; img{width: 20px; height: 20px; border-radius: 50%; }}
+}
+
+  .messageImg{ width: 50px ; height: 50px;  position: absolute; left:10px; bottom:0;
+             img{border-radius: 50%;width: 50px ; height: 50px;}}
+  .messageData{
+      margin:0 20% 0 70px;
+      padding: 15px;
+      float: left;
+      color:#000;
+      border-radius: 15px 15px 15px 0;
+      background-color:  rgba(72,115,160,.8);
+      position: relative;  display:block;
+      p{margin:0; word-break: break-all;}
+      .messageText{ position: relative;  display:block;  }
+     }
+}
+.bottomForm{
+  background-color: #fff;
+  position: relative;
+  border-top: thin solid rgba(100,100,100,.3);
+  ion-textarea{
+    min-height: 40px;
+    max-height: 95px;
+    margin:5px 0 5px 3%;
+    display: block;
+    overflow : scroll;
+    width:80%;
+    font-size: 1.4em;
+  }
+  button{
+  font-size: 1.4em;
+  position: absolute;
+  height: 40px;
+  top:50%;
+  width: 15%;
+  right: 7%;
+  transform: translate(50%,-50%);
+  margin:0;
+  padding:0;
+    }
+}
+.content-ios .scroll-content {padding-bottom: 0 !important;}
+
+}

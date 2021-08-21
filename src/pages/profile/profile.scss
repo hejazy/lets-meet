@@ -1,0 +1,107 @@
+page-profile {
+  .content-md {
+    background-color: rgb(242,242,242) !important;
+  }
+  .topForm{
+    position: relative;
+    height: 160px;
+    text-align: center;
+    background: linear-gradient(rgba(47,77,107,.8),rgba(47,77,107,.8)), url("../assets/img/Signin.png");
+    background-size: cover;
+    color:#fff;
+    .editButton{bottom:10px; right: 0; font-size: 1.4em; position: absolute;}
+    .cancelButton{bottom:5px; left:0; font-size:1.1em; position: absolute; box-shadow: none !important;}
+    .saveButton{bottom:5px; right: 0; font-size: 1.1em; position: absolute; box-shadow: none !important;}
+    .choseImageIcon{position: absolute; top:50%; left:50%; transform:translate(-50%,-50%);background:rgba(120,120,120,.7) ;height:50%; width: 50%; border-radius: 10px;
+    ion-icon{position: absolute; top:50%; left:50%; transform:translate(-50%,-50%);}}
+    .topText{
+      position: absolute;
+      top:60%;
+      left:50%;
+      transform: translate(-50%,-50%);
+      margin: 0;
+      p{margin:0;  }
+      .topImage{
+        width: 60px;
+        height: 60px;
+        background-color: #aaa;
+        border-radius: 50%;
+        margin:0;
+        padding: 0;
+        position: relative;
+        left:50%;
+        transform: translateX(-50%);
+        img{
+          object-fit: cover;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+  .menuButton{
+  height: 40px;
+  width: 30px;
+  float: left;
+  padding-top:10px;
+  font-size: 2em;
+  }
+  .logoutButton{
+    float:right;
+    padding-top:10px;
+  }
+  .listForm{
+    background-color: #fff;
+    padding-top: 11px;
+    width: 100%;
+    .emailItem,.universityItem,.notificationItem,.locationItem,.passwordItem,.mobileItem,  .birtheItem,.genderItem{
+      background-color: #fff;
+      width: 100%;
+    position: relative;
+    }
+
+    img{  width: 35px;  height: 35px;  position: absolute;  left:10px;  top:40%;  transform: translateY(-50%);}
+    ion-icon{left:20px; width:20px; height: 20px;color:#888;  font-size: 1.8em; position: absolute;  top:40%;  transform: translateY(-50%);}
+    .emailText ,.universityText ,.passwordText,.mobileText,.birthText  ,.genderText {
+      p{color:#888;}
+       padding-left: 60px;
+       height: 55px;
+       input{margin: 0;}
+       .activated{color:#000;}
+    }
+    .notificationItem p,.locationItem {color:#888; padding-left: 60px;}
+    ion-toggle{float:right}
+    ion-select{margin: 0 !important; padding: 0 !important; width: 100%;}
+    .select-icon{display: none;}
+  }
+  .birthText{height: 40px;}
+  .datetime-text{transform: translate(-15px ,-15px);}
+  .bottomForm{
+    position: relative;
+    height: 120px;
+    width: 100%;
+    .bottomImg{
+      background-color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: relative;
+      left:50%;
+transform: translateX(-50%);
+    }
+    .bottomContainer{
+      position: absolute;
+      left:50%;
+      bottom:15%;
+      color:#888;
+      transform: translateX(-50%);
+      text-align: center;
+      p{margin: 0;}
+    }
+  }
+
+.topP1{ input{
+  text-align: center; p{text-align: center;}
+  }}
+}

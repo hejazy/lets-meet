@@ -1,0 +1,36 @@
+  <div class="topForm">
+      <button class="menuButton" ion-button navPop icon-only clear color="light">
+          <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+        </button>
+    <div class="topText">
+      <p class="topP1">Search or tap on<br>your groovy interests.</p>
+      <p class="topP2"></p>
+      <ion-searchbar #a1 (ionInput)="search($event)" mode="ios" placeholder="e.g. Gym, Arsenal, Museums" class="searchbar"></ion-searchbar>
+    </div>
+  </div>
+<div class="loader" [hidden]="loaderHide">
+    <div class="loaderP">
+        <ion-spinner name="dots"></ion-spinner>
+    </div>
+  </div>
+  <ion-header>
+  </ion-header>
+<ion-content>
+<!-- <div class="suggestForm" *ngIf="interestsF.length==0 && interests.length!=0">
+  <p>Do you want to suggest this interest?</p>
+  <button ion-button class="suggestButton" color="light" type="button" name="button" (click)="suggestNewInterest(a1.value)">Suggest Now</button>
+</div> -->
+    <div class="interestItem" *ngFor="let one of interestsF">
+      <!-- <ion-checkbox [(ngModel)]="this.one.check" ></ion-checkbox> -->
+      <img class="interestCover" src={{this.one?.img}} alt="">
+     <pre>{{this.one?.name}}</pre>
+     <div class="true">
+       <img src={{this.one?.ico}} alt="">
+     </div>
+    </div>
+</ion-content>
+<!-- <ion-footer>
+  <div class="bottomForm">
+    <button ion-button round color="light" class="bottomButton" type="button" name="button" (click)="done()">Done</button>
+  </div>
+</ion-footer> -->

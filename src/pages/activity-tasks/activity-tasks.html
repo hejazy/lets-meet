@@ -1,0 +1,33 @@
+
+<ion-header>
+  <ion-navbar hideBackButton="true" class="topForm">
+      <ion-buttons left>
+    <button left ion-button navPop icon-only clear color="light">
+      <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+    </button>
+    </ion-buttons>
+      <div class="topText">
+        <p class="topP1">Tasks</p>
+      </div>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding (click)="unfocus( $event)">
+    <ul >
+        <li *ngFor="let one of this.tasks; let i = index"  (press)="pressEvent($event,one)">
+          <div class="card" id={{one.id}}>
+            <img src={{one?.img}} alt="">
+            <h2>{{one.name}}</h2>
+            <p>{{one.discription}}</p>
+            <button color="primary" class="removeButton" (click)="remove(one,i)" id="rm{{one.id}}"><ion-icon name="md-remove-circle"></ion-icon></button>
+            <button color="primary" class="editButton" (click)="edit(one,i)" id="ed{{one.id}}" ><ion-icon name="ios-paper-outline"></ion-icon></button>
+          </div>
+        </li>
+      </ul>
+
+      <ion-fab right bottom [hidden]="keyboardhide">
+          <button ion-fab class="bottomButton" style="z-index:9999; color:#fff;" (click)="createNew()"><ion-icon name="md-add"></ion-icon></button>
+        </ion-fab>
+
+</ion-content>

@@ -1,0 +1,51 @@
+page-event {
+  ion-header{height: 300px;}
+  .topForm{
+    text-align: center;
+    height:300px;
+    position: relative;
+    color:#fff;
+    .topImage{position: absolute;height: 100%;width: 100%; z-index: -100; left:0; filter:brightness(60%);   object-fit: cover;}
+    .opacityImage{position: absolute;height: 100%;width: 100%; z-index: -99; left:0;background-color: rgba(47,77,107,.6);}
+    .topText{
+      p{
+        margin: 0;
+      }
+    }
+
+    button{
+    height: 40px;
+    width: 30px;
+    position: absolute;
+    top:15px;
+    left:5px;
+    }
+    .topIcon{
+      position: absolute;
+      top:20px;
+      right:20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #444;
+      img{width: 25px;height: 25px; border-radius: 50%; position: absolute; top:50%;left: 50%; transform: translate(-50%,-50%);}
+    }
+    .placeCard{
+      border-radius: 12px;
+      height: 160px;
+      .leftCard{float: left; height: 100%;  width: 35%; img{height: 100%; width: 100%; object-fit: cover;}}
+      .rightCard{float:right; height: 100%;  width: 65%;padding: 20px; text-align: left; overflow: scroll;
+        .placeName{font-size: 1.6em; font-weight: bold;color:#333}
+        .placeData{font-size: 1.2em;}
+    }
+    }
+}
+.item-inner,.list-md ,ion-item-options{border-bottom: none !important;box-shadow: none !important;}
+.inputForm{
+  .textInput{height: 60px;border-radius:10px; box-shadow: 3px 3px 5px #aaa; margin: 5px 2% 0; border: 1px solid #ccc;width: 96%;.p2{color:rgb(252,68,120);float:left; padding:6px 0 0 8px; z-index:999999;} .p1{float:right; padding:8px 15px 0 0; z-index:999999;  color:rgb(252,68,120);}}
+  position: relative;  }
+.bottomForm{button{border-radius: 50%; height: 70px; width: 70px;  font-size: 1.4em; position: absolute; bottom: 30px; right: 30px}}
+ion-content{position: relative;}
+}
+.picker-opt-selected{color:rgb(252,68,120)!important; }
+.multi-picker-text{color:rgb(252,68,120)!important; display: none !important;}

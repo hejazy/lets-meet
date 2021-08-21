@@ -1,0 +1,28 @@
+
+<ion-header>
+  <div class="topForm">
+    <button ion-button class="menuButton" color="light" type="button" name="button" menuToggle clear><ion-icon name="menu"></ion-icon></button>
+    <div class="topText">
+      <p class="topP1">Notification</p>
+    </div>
+  </div>
+</ion-header>
+<ion-content padding>
+ <div class="listForm">
+  <ion-list>
+    <div  *ngFor="let one of notifications" class="listItem" (click)="openPage('activity',this.one.id)">
+      <div class="notificationIcon">
+        <ion-icon color="primary" *ngIf="this.one.new==true" name=md-radio-button-off></ion-icon>
+        <ion-icon style="color:#aaa;" *ngIf="this.one.new==false" name=md-radio-button-off></ion-icon>
+      </div>
+      <div class="notificationText">
+        <p>{{this.one.message}}</p>
+      </div>
+      <div class="notificationTime">
+        <p>{{this.one.time}}</p>
+      </div>
+      <hr>
+    </div>
+  </ion-list>
+ </div>
+</ion-content>

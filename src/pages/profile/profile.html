@@ -1,0 +1,126 @@
+
+<ion-header>
+  <div class="topForm">
+    <button ion-button class="menuButton" color="light" type="button" name="button" menuToggle clear><ion-icon name="menu"></ion-icon></button>
+    <!-- <button ion-button class="logoutButton" color="light" type="button" name="button" (click)="logout()" clear>Logout</button> -->
+    <button ion-button class="logoutButton" color="light" type="button" name="button" (click)="showInterests()" clear>Interests</button>
+    <div class="topText">
+    <div class="topImage">
+      <img src={{this.captureDataUrl}} alt="">
+      <div class="choseImageIcon" (click)="uploadImage()" *ngIf="this.disableEdit==false">
+        <ion-icon name="md-add"></ion-icon></div>
+    </div>
+    <ion-input class="topP1" #a7 type="text" value={{this.user[0]?.name}} disabled="true"></ion-input>
+    </div>
+    <button ion-button class="cancelButton" color="light" type="button" name="button" (click)="cancelEdit()" clear  [hidden]="this.disableEdit">cancel</button>
+    <button ion-button class="editButton" color="light" type="button" name="button" (click)='enableEdit("Please enter password to aplay changes.","Confirm")' clear [hidden]="this.disableEdit==false">
+      <ion-icon name="ios-create-outline"></ion-icon></button>
+    <button ion-button class="saveButton" color="light" type="button" name="button" (click)='enableEdit("Please enter password to aplay changes.","Confirm")' clear  [hidden]="this.disableEdit">save</button>
+  </div>
+
+</ion-header>
+<div class="loader" [hidden]="loaderHide">
+  <div class="loaderP">
+  <ion-spinner name="dots" ></ion-spinner>
+  </div>
+</div>
+
+<ion-content>
+<div class="listForm">
+  <div class="emailItem">
+   <img src="assets/img/email.png">
+   <div class="emailText">
+     <p>Email</p>
+     <ion-input #a1 type="text" value={{this.user[0]?.email}} [disabled]="disableEditEmail"></ion-input>
+   </div>
+   <hr>
+  </div>
+  <div class="passwordItem" *ngIf="this.authType!='facebook'">
+   <ion-icon name=lock></ion-icon>
+   <div class="passwordText"  >
+     <p>Password</p>
+     <ion-input #a2 type="password" [(ngModel)]="passw" [disabled]="disableEdit" (focus)="passw=''"></ion-input>
+   </div>
+   <hr>
+  </div>
+  <div class="mobileItem">
+   <ion-icon name=ios-call style="padding-right:4px;"></ion-icon>
+   <div class="mobileText">
+     <p>Phone number</p>
+     <ion-input #a3 type="number" value={{this.user[0]?.phone}} [disabled]="disableEdit"></ion-input>
+   </div>
+   <hr>
+  </div>
+  <div class="birtheItem">
+   <ion-icon name=md-calendar style="padding-right:9px;"></ion-icon>
+   <div class="birthText">
+     <p>Birth</p>
+       <ion-datetime  displayFormat="MMM/D/YYYY" [(ngModel)]="default" style="height:60px;" [disabled]="disableEdit"></ion-datetime>
+   </div>
+   <hr>
+  </div>
+  <div class="genderItem">
+   <ion-icon name=md-transgender style="padding-right:9px;"></ion-icon>
+   <div class="genderText">
+     <p>Gender</p>
+     <ion-select interface="action-sheet" [(ngModel)]="genderr" [disabled]="disableEdit">
+       <ion-option value="f" >Female</ion-option>
+       <ion-option value="m" >Male</ion-option>
+     </ion-select>
+   </div>
+   <hr>
+  </div>
+  <div class="universityItem">
+   <img src="assets/img/university.png">
+   <div class="universityText">
+     <p>university</p>
+     <ion-input #a4 type="text" value={{this.user[0]?.university}} [disabled]="disableEdit"></ion-input>
+   </div>
+   <hr>
+  </div>
+  <div class="universityItem">
+   <ion-icon name=ios-school></ion-icon>
+   <div class="universityText">
+     <p>Course</p>
+     <ion-input #a5 type="text" value={{this.user[0]?.course}} [disabled]="disableEdit"></ion-input>
+   </div>
+   <hr>
+  </div>
+  <div class="genderItem">
+   <ion-icon name=ios-search style="padding-right:9px;"></ion-icon>
+   <div class="genderText">
+     <p>Who can invite me..</p>
+     <ion-select interface="action-sheet" [(ngModel)]="available" (ionChange)="Toggle('available')">
+       <ion-option value="all" >Public</ion-option>
+       <ion-option value="friends" >Friends</ion-option>
+     </ion-select>
+   </div>
+   <hr>
+  </div>
+  <div class="notificationItem">
+   <img src="assets/img/notification2.png">
+   <p style="display:inline-block">Enable Notification</p>
+    <ion-toggle  #a8 [(ngModel)]="notification" color="greeny" (ionChange)="Toggle('notification')"></ion-toggle>
+    <hr>
+  </div>
+  <div class="locationItem">
+   <img src="assets/img/location2.png">
+   <p style="display:inline-block">Turn on Location</p>
+    <ion-toggle #a9 [(ngModel)]="location" color="greeny" (ionChange)="Toggle('location')"></ion-toggle>
+    <hr>
+  </div>
+</div>
+<div class="bottomForm">
+  <div class="bottomContainer">
+  <div class="bottomImg">
+  </div>
+  <div class="bottomText">
+<p style="font-size:1.5em; text-transform:capitalize; font-weight:bold;">Lets meet</p>
+<p>version 1.0 Beta</p>
+  </div>
+</div>
+</div>
+</ion-content>
+
+<img src='assets/img/noImg.jpg' alt="" hidden='true' id='image'>
+

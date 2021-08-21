@@ -1,0 +1,73 @@
+<div class="loader" [hidden]="loaderHide">
+  <div class="loaderP">
+    <ion-spinner name="dots"></ion-spinner>
+  </div>
+</div>
+
+<ion-header>
+  <div class="topForm">
+    <button ion-button class="menuButton" color="light" type="button" name="button" menuToggle clear>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <button ion-button clear color="light" class="shareButton" (click)="share()">
+      <ion-icon name="md-share"></ion-icon>
+    </button>
+    <div class="topText">
+      <p class="topP1">Invite Friends</p>
+    </div>
+    <ion-searchbar (ionInput)="search($event)" [(ngModel)]="searchValue" mode="ios" placeholder="Search friends" class="searchbar"
+      debounce="600"></ion-searchbar>
+    <!-- <div class="tabsbar">
+      <button ion-button clear style="color:#fff; border-bottom:3px solid rgb(252,68,120);" [hidden]="thistab==2" type="button"
+        name="button">SMS</button>
+      <button ion-button clear [hidden]="thistab==2" type="button" name="button" (click)='changeForm(1)'>Email</button>
+      <button ion-button clear [hidden]="thistab==1" type="button" name="button" (click)='changeForm(2)'>SMS</button>
+      <button ion-button clear style="color:#fff; border-bottom:3px solid rgb(252,68,120);" [hidden]="thistab==1" type="button"
+        name="button">Email</button>
+    </div> -->
+  </div>
+</ion-header>
+<ion-content padding>
+  <div class="ios">
+    <!-- <div class="topInvite">
+
+      <!-- <button class="whatsapp" ion-button type="button" name="button" round (click)="clickEvent($event,'whatsapp')">
+        <ion-icon name="logo-whatsapp"></ion-icon> Whatsapp
+      </button>
+      <button class="facebook" ion-button type="button" name="button" round (click)="clickEvent($event,'facebook')">
+        <ion-icon name="logo-facebook"></ion-icon>Facebook
+      </button>
+  </div>-->
+
+    <!--
+    <ion-alpha-scroll
+  [listData]="this.total"
+  key="_objectInstance.name.formatted"
+  [itemTemplate]="alphaScrollItemTemplate"
+  [currentPageClass]="currentPageClass"
+  [triggerChange]="triggerAlphaScrollChange">
+</ion-alpha-scroll> -->
+    <ion-list [virtualScroll]="this.total" style="width: 100%;">
+      <div>
+        <div *virtualItem="let item" style="width: 100%;">
+          <div style="width: 100%; height: 60px;padding:10px 20px; position: relative;" (click)="clickEvent($event,item)">
+            <ion-checkbox [(ngModel)]="item.check" [class]="item.check"></ion-checkbox>
+            <div class="listCheckbox" *ngIf="item.check==true">
+              <ion-icon name="md-checkmark"></ion-icon>
+            </div>
+            <div class="imgList">
+              <p>{{item._objectInstance.char}}</p>
+            </div>
+            <p class="nameList">{{item._objectInstance.name.formatted}}</p>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+  </div>
+  <ion-fab right bottom [hidden]="keyboardhide">
+    <button ion-fab class="bottomButton" style="z-index:9999; color:#fff;" (click)="openPage()">Invite</button>
+  </ion-fab>
+</ion-content>
+<!-- <div class="alphabet" [style.top.px]="this.divHeight" *ngIf="viewAlpha">
+  <p>{{alphabet}}</p>
+</div> -->

@@ -1,0 +1,63 @@
+<ion-header>
+  <div class="topForm">
+    <button ion-button class="menuButton" color="light" type="button" name="button" menuToggle clear><ion-icon name="menu"></ion-icon></button>
+    <div class="topText">
+      <p class="topP1">Public Activities</p>
+    </div>
+  </div>
+</ion-header>
+<div class="loader" [hidden]="loaderHide">
+  <div class="loaderP">
+      <ion-spinner name="dots"></ion-spinner>
+  </div>
+</div>
+<ion-content padding>
+<div class="listForm">
+ <div class="listDay" *ngFor="let alpha of activities;let i =index;">
+  <div class="listHeader" *ngIf="alpha[0]!=undefined">
+     <ion-icon name="md-radio-button-off" color="primary"></ion-icon><p>{{alpha[0].time.date}}</p>
+  </div>
+  <ion-list *ngIf="alpha[0]!=undefined">
+     <ion-item *ngFor="let one of alpha;let j =index;">
+      <ion-card [ngClass]="this.one.state!='joined' ? 'listItem1': 'listItem2'" (click)="openActivity(one)">
+        <div class="itemLeft" style.background={{one?.interest.color}}>
+          <div class="itemTime">
+           <p style="margin: 10px 0 0 0">{{one.time.time}}</p>
+           <p style="float:right; text-transform:uppercase; font-size:1em; padding-right:20%;">{{one.time.ampm}}</p>
+          </div>
+
+          <div class="itemJoin">
+            <button ion-button style='width:60px' color="prmiary"  clear disabled type="button" name="button" *ngIf="this.one.state=='joined'"><p>joined</p></button>
+            <button ion-button clear color="light" type="button" name="button" *ngIf="this.one.state!='joined'" (click)='join($event,i,j)'><p>join</p></button>
+          </div>
+        </div>
+        <div class="itemRight">
+          <div class="itemName">
+            <p style.color={{one.interest.color}}>{{one.interest.name}}</p>
+          </div>
+          <div class="itemPeople" *ngFor="let person of this.one.admins2" style='margin-bottom:10px'>
+            <img src={{person.profile[0].profile}} alt="">
+          </div>
+          <div>
+            <div class="itemPeople" *ngIf='this.one.creator.profile'>
+              {{this.one.creator.profile[0].name}}
+           <span *ngIf='this.one?.joined2.length - 1'>+{{this.one.joined2.length - 1}}</span>
+          </div>
+          </div>
+          <div class="itemPlace">
+           <img src="assets/img/location.png" alt=""><p>{{one.place.name}}</p>
+          </div>
+        </div>
+      </ion-card>
+  </ion-item>
+
+  </ion-list>
+
+ </div>
+ <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+</div>
+</ion-content>
+
