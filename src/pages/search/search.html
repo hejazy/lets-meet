@@ -1,0 +1,19 @@
+<ion-header>
+  <div class="topForm">
+    <button ion-button class="menuButton" color="light" type="button" name="button" menuToggle clear><ion-icon name="menu"></ion-icon></button>
+    <div class="topText">
+      <p class="topP1">Search for friend</p>
+    </div>
+    <ion-searchbar id="searchBox"  (ionInput)="search($event)" [(ngModel)] ="searchValue" mode="ios" placeholder="Search friends" class="searchbar" debounce="600"></ion-searchbar>
+    </div>
+</ion-header>
+<ion-content padding (pan)="panEvent($event)">
+  <div class="fiveUsers">
+    <div class="user" *ngFor="let one of this.users" (press)="pressEvent($event,one)" (touchend)="touchend()">
+      <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+      <div class="checkAllPeople" *ngIf="this.one.mark==true"></div>
+    <img src={{one.profile}} alt="">
+    <p>{{one.name}}</p>
+    </div>
+  </div>
+  </ion-content>

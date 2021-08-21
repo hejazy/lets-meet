@@ -1,0 +1,390 @@
+page-who {
+  .topForm {
+    z-index: 10;
+    text-align: center;
+    height: 150px;
+    position: relative;
+    color: #fff;
+    .Topbutton {
+      height: 40px;
+      width: 30px;
+      position: absolute;
+      top: 15px;
+      left: 5px;
+      z-index: 100;
+    }
+    .topImage {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -100;
+      left: 0;
+      filter: brightness(60%);
+      object-fit: cover;
+    }
+    .opacityImage {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: -99;
+      left: 0;
+      background-color: rgba(47, 77, 107, .6);
+    }
+    .topText {
+      p {
+        margin: 0;
+      }
+    }
+    .topIcon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #444;
+      img {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .tabsbar {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      button {
+        box-shadow: none !important;
+        display: inline-block;
+        width: 40%;
+        margin: 0;
+        color: #aaa;
+        font-size: 1.2em;
+        transform: translateY(1px);
+      }
+    }
+  }
+  .bottomButton {
+    float: right;
+    font-size: 1.3em;
+    font-weight: bold;
+    width: 70px;
+    height: 70px;
+    margin: 0 2% 10px 0
+  }
+  .searchbar {
+    box-shadow: 1px 1px 8px #aaa;
+    border-radius: 10px !important;
+    z-index: 100;
+    margin: 20px 5%;
+    background: transparent !important;
+    width: 90%;
+    .searchbar-clear-icon {
+      display: none !important;
+    }
+    input {
+      height: 4rem;
+      padding-left: 50px !important;
+      border-radius: 10px !important;
+    }
+  }
+  .friendList {
+    padding-right: 10px;
+    height: 70px;
+    position: relative;
+    border-bottom: 1px solid #ddd;
+    ion-checkbox {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 200;
+      .checkbox-icon {
+        display: none;
+      }
+    }
+    .listCheckbox {
+      color: rgb(252, 68, 120);
+      float: right;
+      font-size: 1.6em;
+      margin: 0 10px;
+      position: relative;
+      top: 20px;
+    }
+    .true {
+      background-color: rgba(150, 150, 150, .2);
+    }
+    p {
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      transform: translateY(-50%);
+      left: 20px;
+      top: 50%;
+      ;
+      font-size: 1.2em;
+      width: calc(100% - 110px);
+      white-space: nowrap;
+      overflow: auto;
+      display: block;
+      text-overflow: ellipsis;
+    }
+    img {
+      object-fit: cover;
+      float: right;
+      margin: 0 10px;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      position: relative;
+      top: 35px;
+    }
+    .imgList {
+      font-size: .8em;
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+    }
+  }
+  .listForm {
+    margin-bottom: 100px;
+  }
+  .fifteenMin,
+  .thirtyMin,
+  .fiveMin {
+    position: relative;
+    padding: 20px 0 20px 0;
+    .fifteenTitle,
+    .thirtyTitle,
+    .fiveTitle {
+      position: relative;
+      .circle {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: rgb(252, 68, 120);
+        margin-left: 35px;
+        display: inline-block;
+      }
+      .liness {
+        margin: 0;
+        padding: 0;
+        width: 30px;
+        height: 3px;
+        background-color: rgb(252, 68, 120);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      p {
+        display: inline-block;
+        padding-left: 10px;
+      }
+    }
+  }
+  .fifteenUsers,
+  .thirtyUsers,
+  .fiveUsers {
+    width: 308px;
+    margin-left: calc((100% - 308px)/2);
+    margin-right: calc((100% - 308px)/2);
+    ion-checkbox {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 200;
+      border: 3px dashed rgb(252, 68, 120);
+      border-radius: 50%;
+      .checkbox-icon {
+        display: none;
+      }
+    }
+    .checkAllPeople {
+      position: absolute;
+      bottom: 3px;
+      right: 3px;
+      background-color: rgb(30, 150, 30);
+      z-index: 999999;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+    }
+    .true {
+      background-color: rgba(150, 150, 150, .4);
+      border-style: solid;
+    }
+    .user {
+      width: 80px;
+      height: 80px;
+      display: inline-block;
+      position: relative;
+      margin: 20px 10px;
+    }
+    img {
+      border-radius: 50%;
+      object-fit: cover;
+      height: 70px;
+      width: 70px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%)
+    }
+    p {
+      max-width: 80px;
+      position: absolute;
+      top: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin: 0;
+      white-space: nowrap;
+      overflow: auto;
+      display: block;
+      text-overflow: ellipsis;
+    }
+  }
+  .friendForm,
+  .allForm {
+    margin-bottom: 100px;
+  }
+  .profileBlur {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(100, 100, 100, .5)
+  }
+  .scroll-content {
+    background: linear-gradient(to bottom, rgba(100, 100, 100, 0) 80%, rgba(100, 100, 100, .6) 100%);
+  }
+  .fabClass {
+    width: 100%;
+  }
+  .joinNo {
+    width: 65%;
+    margin-left: 2%;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #eee;
+    display: inline-block;
+    position: absolute;
+    box-shadow: 5px 5px 5px #888;
+    bottom: 20px;
+    z-index: 999999;
+    button {
+      display: inline-block;
+      width: 30px;
+      color: #999;
+      font-weight: 100 !important;
+    }
+    .minButton {
+      position: absolute;
+      left: 5px;
+      top: 45%;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+    }
+    .maxButton {
+      position: absolute;
+      right: 5px;
+      top: 45%;
+      transform: translateY(-50%);
+      font-size: 1.5em;
+    }
+    .minButton1 {
+      position: absolute;
+      left: 10px;
+      top: -10px;
+      font-size: .9em;
+      ion-icon {
+        transform: translateY(10px)
+      }
+    }
+    .minButton2 {
+      position: absolute;
+      left: 10px;
+      bottom: -10px;
+      font-size: .9em;
+      ion-icon {
+        transform: translateY(-8px)
+      }
+    }
+    .maxButton1 {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      font-size: .9em;
+      ion-icon {
+        transform: translateY(10px)
+      }
+    }
+    .maxButton2 {
+      position: absolute;
+      right: 10px;
+      bottom: -10px;
+      font-size: .9em;
+      ion-icon {
+        transform: translateY(-8px)
+      }
+    }
+    .divider {
+      position: absolute;
+      left: 50%;
+      top: 10%;
+      bottom: 10%;
+      border-left: 2px solid #999;
+    }
+    .minP2 {
+      position: absolute;
+      left: 45%;
+      bottom: 5px;
+      transform: translateX(-100%);
+      margin: 0;
+      font-weight: bold;
+    }
+    .maxP2 {
+      position: absolute;
+      left: 55%;
+      bottom: 5px;
+      margin: 0;
+      font-weight: bold;
+    }
+    .minP1 {
+      color: rgb(252, 68, 120);
+      position: absolute;
+      left: 45%;
+      top: 5px;
+      transform: translateX(-100%);
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .maxP1 {
+      color: rgb(252, 68, 120);
+      position: absolute;
+      left: 55%;
+      top: 5px;
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+  }
+  .greyedOut {
+    transition: all .07s ease-in;
+    filter: blur(5px);
+  }
+
+  .searchbar {
+    margin-top:25px;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+  }
+}

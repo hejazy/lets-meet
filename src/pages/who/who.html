@@ -1,0 +1,184 @@
+<div class="loader" [hidden]="loaderHide">
+    <div class="loaderP">
+        <ion-spinner name="dots"></ion-spinner>
+    </div>
+</div>
+<ion-header (pan)="panEvent($event)">
+  <div class="topForm" >
+    <button class="Topbutton" left ion-button navPop icon-only clear color="light">
+      <ion-icon ios="md-arrow-back" md="md-arrow-back"></ion-icon>
+    </button>
+    <img class="topImage"  src={{this.activity?.interest.img}} alt="">
+    <div class="opacityImage"></div>
+    <div class="topIcon">
+      <img src={{this.activity?.interest.ico}} alt="">
+    </div>
+  <div class="topText">
+    <p class="topP1">Who you want to meet</p>
+    <ion-searchbar (ionInput)="search($event)" mode="ios" placeholder="search .." debounce="1000"
+    class="searchbar"></ion-searchbar>
+    <!-- <p class="topP4" style="font-size:1.1em;margin:0 15%;" [hidden]="thistab==2">Tap on people to invite or press down to see profiles.</p>
+ -->
+    </div>
+  <div class="tabsbar">
+    <button ion-button clear style="color:#fff; border-bottom:3px solid rgb(252,68,120);" [hidden]="thistab==2" type="button" name="button">All</button>
+    <button ion-button clear [hidden]="thistab==2" type="button" name="button" (click)='changeForm(1)' [disabled]="auth">Friends</button>
+    <button ion-button clear [hidden]="thistab==1" type="button" name="button" (click)='changeForm(2)'>All</button>
+    <button ion-button clear style="color:#fff; border-bottom:3px solid rgb(252,68,120);" [hidden]="thistab==1" type="button" name="button">Friends</button>
+  </div>
+  </div>
+</ion-header>
+
+<ion-content   (pan)="panEvent($event)">
+<div class="allForm" *ngIf="thistab==1">
+  <div class="fiveMin"  *ngIf="this.five.length!=0">
+  <div class="fiveTitle">
+    <div class="liness"></div>
+    <div class="circle"></div>
+    <p>5 min away</p>
+  </div>
+    <div class="fiveUsers">
+      <div class="user" *ngFor="let one of this.fiveF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+        <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+        <div class="checkAllPeople" *ngIf="this.one.mark==true"></div>
+      <img src={{one.profile[0].profile}} alt="">
+      <p>{{one.profile[0].name}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="fifteenMin"  *ngIf="this.fifteen.length!=0">
+  <div class="fifteenTitle">
+    <div class="liness"></div>
+    <div class="circle"></div>
+    <p>15 min away</p>
+  </div>
+    <div class="fifteenUsers">
+      <div class="user" *ngFor="let one of this.fifteenF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+        <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+        <div class="checkAllPeople" *ngIf="this.one.mark==true"></div>
+      <img src={{one.profile[0].profile}} alt="">
+      <p>{{one.profile[0].name}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="thirtyMin"  *ngIf="this.thirty.length!=0">
+    <div class="thirtyTitle">
+      <div class="liness"></div>
+      <div class="circle"></div>
+      <p>30 min away</p>
+    </div>
+    <div class="thirtyUsers">
+  <div class="user" *ngFor="let one of this.thirtyF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+    <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+    <div class="checkAllPeople"  *ngIf="this.one.mark==true"></div>
+  <img src={{one.profile[0].profile}} alt="">
+  <p>{{one.profile[0].name}}</p>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="friendForm" *ngIf="thistab==2">
+  <!-- <ion-searchbar (ionInput)="search($event)" mode="ios" placeholder="Search friends" class="searchbar"></ion-searchbar> -->
+<div class="listForm" #content1>
+  <div class="fiveMin"  *ngIf="this.fiveFriendF.length!=0">
+  <div class="fiveTitle">
+    <div class="liness"></div>
+    <div class="circle"></div>
+    <p>5 min away</p>
+  </div>
+  <div class="friendList" *ngFor="let one of fiveFriendF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+    <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+    <div class="listCheckbox" *ngIf="this.one.check==true"><ion-icon name="md-checkmark"></ion-icon></div>
+    <p>{{one.profile[0].name}}</p>
+    <img src={{one.profile[0].profile}} alt="">
+  </div>
+</div>
+
+<div class="fifteenMin"  *ngIf="this.fifteenFriendF.length!=0">
+  <div class="fifteenTitle">
+    <div class="liness"></div>
+    <div class="circle"></div>
+    <p>15 min away</p>
+  </div>
+  <div class="friendList" *ngFor="let one of fifteenFriendF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+    <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+    <div class="listCheckbox" *ngIf="this.one.check==true"><ion-icon name="md-checkmark"></ion-icon></div>
+    <p>{{one.profile[0].name}}</p>
+    <img src={{one.profile[0].profile}} alt="">
+  </div>
+</div>
+
+  <div class="thirtyMin"  *ngIf="this.thirtyFriendF.length!=0">
+    <div class="thirtyTitle">
+      <div class="liness"></div>
+      <div class="circle"></div>
+      <p>30 min away</p>
+    </div>
+    <div class="friendList" *ngFor="let one of thirtyFriendF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+      <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+      <div class="listCheckbox" *ngIf="this.one.check==true"><ion-icon name="md-checkmark"></ion-icon></div>
+      <p>{{one.profile[0].name}}</p>
+      <img src={{one.profile[0].profile}} alt="">
+    </div>
+  </div>
+
+  <div class="thirtyMin"  *ngIf="this.friendlistF.length!=0">
+    <div class="thirtyTitle">
+      <div class="liness"></div>
+      <div class="circle"></div>
+      <p>Out of Area</p>
+    </div>
+    <div class="friendList" *ngFor="let one of friendlistF" (press)="pressEvent($event,one)" (touchend)="touchend()">
+      <ion-checkbox [(ngModel)]="this.one.check" [class]="this.one.check"></ion-checkbox>
+      <div class="listCheckbox" *ngIf="this.one.check==true"><ion-icon name="md-checkmark"></ion-icon></div>
+      <p>{{one.name}}</p>
+      <img src={{one.profile}} alt="">
+    </div>
+  </div>
+  <div class="thirtyMin"  *ngIf="this.contactsListF.length!=0">
+    <div class="thirtyTitle">
+      <div class="liness"></div>
+      <div class="circle"></div>
+      <p>Invite friends</p>
+    </div>
+    <div class="friendList" *ngFor="let one of contactsListF">
+    <ion-checkbox [(ngModel)]="this.one.check"></ion-checkbox>
+      <p>{{one._objectInstance.name.formatted}}</p>
+      <button ion-button outline round *ngIf="this.one.check!=true" class="imgList">
+        Invite
+      </button>
+      <button ion-button outline round *ngIf="this.one.check==true" class="imgList">
+        Inviteed
+      </button>
+    </div>
+  </div>
+</div>
+</div>
+
+<ion-fab right bottom *ngIf='this.auth==false' style='margin-bottom:100px;' class="fabClass" [hidden]="keyboardhide">
+  <button ion-fab class="bottomButton" style="z-index:9999; color:#fff; "(click)="publicActivity()">public</button>
+</ion-fab>
+  <ion-fab right bottom class="fabClass" [hidden]="keyboardhide">
+      <button ion-fab class="bottomButton" style="z-index:9999; color:#fff; "(click)="openPage()">Meet</button>
+  </ion-fab>
+
+
+</ion-content >
+<div  (pan)="panEvent($event)" [hidden]="keyboardhide">
+  <div class="joinNo">
+    <button class="minButton" [hidden]="this.minAttend!='Any'"  ion-button  icon-only clear (click)="attendNumber('minIncrease')"><ion-icon name="md-add"></ion-icon></button>
+    <button class="minButton" [hidden]="this.minAttend=='Any'  || !(this.minAttend==this.maxAttend)"  ion-button  icon-only clear (click)="attendNumber('minDecrease')"><ion-icon name="md-remove"></ion-icon></button>
+    <button class="minButton1" [hidden]="this.minAttend=='Any' || !(this.minAttend!=this.maxAttend)" ion-button  icon-only clear (click)="attendNumber('minIncrease')"><ion-icon name="md-add"></ion-icon></button>
+    <button class="minButton2" [hidden]="this.minAttend=='Any' || !(this.minAttend!=this.maxAttend)"  ion-button  icon-only clear (click)="attendNumber('minDecrease')"><ion-icon name="md-remove"></ion-icon></button>
+    <p class="minP1">{{minAttend}}</p>
+    <p class="minP2">Min</p>
+    <div class="divider"></div>
+    <p class="maxP1">{{maxAttend}}</p>
+    <p class="maxP2">Max</p>
+    <button class="maxButton" [hidden]="this.maxAttend!='Any'"  ion-button  icon-only clear (click)="attendNumber('maxIncrease')"><ion-icon name="md-add"></ion-icon></button>
+    <button class="maxButton1" [hidden]="this.maxAttend=='Any' "  ion-button  icon-only clear (click)="attendNumber('maxIncrease')"><ion-icon name="md-add"></ion-icon></button>
+    <button class="maxButton2" [hidden]="this.maxAttend=='Any' "  ion-button  icon-only clear (click)="attendNumber('maxDecrease')"><ion-icon name="md-remove"></ion-icon></button>
+  </div>
+</div>
